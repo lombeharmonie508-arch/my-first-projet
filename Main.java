@@ -8,7 +8,7 @@ void main() {
     String username2;
     String password;
     String password2;
-    String phonenumber;
+    String phoneNumber;
 
     Login userLogin = new Login();
     //Prompting the user first name and surname
@@ -16,32 +16,32 @@ void main() {
 
 
     //Prompting the username from the user
-    System.out.println("Please enter your username:");
+    System.out.print("Please enter your username:");
     username = sc.nextLine();
     //Checking the conditions for the username
     userLogin.checkUserName(username);
     //Prompting the phone number from the user
-    System.out.println("Please enter your phone number:");
-    phonenumber = sc.nextLine();
+    System.out.print("Please enter your phone number:");
+    phoneNumber = sc.nextLine();
 
     //Checking the conditions for the phone number
-    userLogin.checkCellPhoneNumber(phonenumber);
+    userLogin.checkCellPhoneNumber(phoneNumber);
     //Prompting the password from the user
-    System.out.println("Please enter your password:");
+    System.out.print("Please enter your password:");
     password = sc.nextLine();
 
     //Checking the conditions for the password
     userLogin.checkPasswordComplexity(password);
-    System.out.println("------------------Registration successful-----------------------");
+    System.out.print("------------------Registration Successful-----------------------");
     // Login part
     //Prompting the user for the login information
-    System.out.println("Please login your details:");
-    System.out.println("Username:");
+    System.out.print("Please login your details:");
+    System.out.print("Username:");
     username2 = sc.nextLine();
-    System.out.println("Password:");
+    System.out.print("Password:");
     password2 = sc.nextLine();
 
     // Checking the conditions for the login
     userLogin.loginUser(username2 , password2 , username , password );
-    System.out.println("----------------------Login Successful----------------------");
+    System.out.print("----------------------Login Successful----------------------");
 }

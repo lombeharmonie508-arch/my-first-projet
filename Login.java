@@ -4,20 +4,22 @@ public class Login {
     String lastName;
 
     Scanner sc = new Scanner(System.in);
-    void userInput(){
-        System.out.println("Please enter your first name:");
+
+    void userInput() {
+        System.out.print("Please enter your first name:");
         firstName = sc.nextLine();
-        System.out.println("Please enter your last name:");
+        System.out.print("Please enter your last name:");
         lastName = sc.nextLine();
     }
+
     //Method to check the username condition
-    boolean checkUserName(String username){
+    boolean checkUserName(String username) {
         while (true) {
             if (username.contains("_") && username.length() <= 6) {
-                System.out.println("Username successfully captured");
+                System.out.print("Username successfully captured");
                 break;
             } else {
-                System.out.println("Username is not correctly formated; please " +
+                System.out.print("Username is not correctly formated; please " +
                         "ensure that " +
                         "your username contains " +
                         "an underscore" +
@@ -28,41 +30,43 @@ public class Login {
 
         return true;
     }
+
     // Method to check the cellphone number condition
-    boolean checkCellPhoneNumber(String phonenumber){
+    boolean checkCellPhoneNumber(String phoneNumber) {
         while (true) {
-            if (phonenumber.startsWith("+27") && phonenumber.length() <= 12) {
-                System.out.println(" Cell phone number successfully added");
+            if (phoneNumber.startsWith("+27") && phoneNumber.length() <= 12) {
+                System.out.print(" Cell phone number successfully added");
                 break;
             } else {
-                System.out.println("Cell phone number incorrectly formatted or does not contain international code");
-                phonenumber = sc.nextLine();
+                System.out.print("Cell phone number incorrectly formatted or does not contain international code");
+                phoneNumber = sc.nextLine();
             }
         }
         return true;
     }
+
     // Method to check the password conditions
-    boolean checkPasswordComplexity(String password){
+    boolean checkPasswordComplexity(String password) {
         while (true) {
-            boolean hasnumber = false;
+            boolean hasNumber = false;
             boolean hasCapital = false;
-            boolean specialcharacter = false;
+            boolean specialCharacter = false;
             for (char c : password.toCharArray()) {
                 if (Character.isDigit(c)) {
-                    hasnumber = true;
+                    hasNumber = true;
                 }
                 if (Character.isUpperCase(c)) {
                     hasCapital = true;
                 }
                 if (!Character.isLetterOrDigit(c)) {
-                    specialcharacter = true;
+                    specialCharacter = true;
                 }
             }
-            if (hasnumber && hasCapital && specialcharacter && password.length() >= 8) {
-                System.out.println("Password successfully captured");
-                break;
+            if (hasNumber && hasCapital && specialCharacter && password.length() >= 8) {
+                System.out.print("Password successfully captured");
+                return true;
             } else {
-                System.out.println("Password is not correctly formatted , " +
+                System.out.print("Password is not correctly formatted , " +
                         "please ensure that the password " +
                         "contains at least " +
                         "eight character " +
@@ -70,26 +74,24 @@ public class Login {
                 password = sc.nextLine();
             }
         }
-        return true;
-    }
-    // Method to check the login features
-    boolean loginUser(String username2 , String password2, String username , String password){
-        while (true){
-            if (username2.matches(username)&& password2.matches(password)){
-                System.out.println("Welcome "+ firstName +" " + lastName + " it is great to see you again!");
-                break;
-            } else{
-                System.out.println("Username or password incorrect , please try again:");
-                System.out.println("Username:");
-                username2 = sc.nextLine();
-                System.out.println("Password:");
-                password2 = sc.nextLine();
-            }
-        }
-        return true;
     }
 
-    public boolean checkPasswordCompllexity(String s) {
-        return false;
+    // Method to check the login features
+    void loginUser(String username2, String password2, String username, String password) {
+        while (true) {
+
+            if (username2.equals(username) && password2.equals(password)) {
+                System.out.print("-----------------Login Successful-----------------");
+                System.out.print("Welcome " + firstName + " " + lastName + " It is great to see you again!");
+                break;
+            } else {
+                System.out.print("Username or password incorrect , please try again:");
+                System.out.print("Username: ");
+                username2 = sc.nextLine();
+                System.out.print("Password: ");
+                password2 = sc.nextLine();
+
+            }
+        }
     }
 }
